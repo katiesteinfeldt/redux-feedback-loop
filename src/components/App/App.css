@@ -17,3 +17,9 @@
   font-size: large;
 }
 
+.nextButton {
+    float: right;
+    width: 55%;
+    margin-right: 0px;
+    overflow:auto;
+}
