@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
+import { connect } from 'react-redux';
 import './App.css';
+// import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends Component {
+
+  componentDidMount() { 
+    //this.getPizzas();
+  }
+
   render() {
     return (
       <div className="App">
@@ -16,4 +23,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapReduxStateToProps = (reduxState) => {
+  return reduxState;
+}
+
+export default connect(mapReduxStateToProps)(App);
