@@ -9,13 +9,15 @@ import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Thanks from '../Thanks/Thanks';
+import Admin from '../Admin/Admin';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
 
   componentDidMount() {
-   
+
   }
+
 
   render() {
     return (
@@ -28,7 +30,7 @@ class App extends Component {
           <Route exact path="/comments" component={Comments} />
           <Route exact path="/review" component={Review} />
           <Route exact path="/thanks" component={Thanks} />
-          
+          <Route exact path="/admin" component={Admin} />
         </div>
       </Router>
     );

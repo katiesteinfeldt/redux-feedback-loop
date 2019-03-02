@@ -22,6 +22,17 @@ app.post('/feedback', (req, res) => {
         });
 });
 
+app.get('/feedback', (req, res) => {
+    console.log('/songs GET route was hit');
+    pool.query('SELECT * FROM "feedback";')
+        .then((result) => {
+            res.send(result.rows);
+        }).catch((error) => {
+            console.log('error with feedback select', error);
+            res.sendStatus(500);
+        });
+});
+
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
     console.log('Listening on port: ', PORT);
