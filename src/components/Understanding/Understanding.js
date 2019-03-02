@@ -19,7 +19,7 @@ class Understanding extends Component {
 
     handleChangeFor = event => {
         this.setState({
-            feelings: event.target.value,
+            understanding: event.target.value,
         })
     }
 
@@ -38,7 +38,7 @@ class Understanding extends Component {
                 <br />
                 <h2>Review Your Feedback</h2>
                 <h3>Feelings: {this.props.feelingsReducer} </h3>
-                <h3>Understanding: {this.props.understanding}</h3>
+                <h3>Understanding: {this.props.understandingReducer}</h3>
                 <h3>Support: </h3>
                 <h3>Comments: </h3>
                 <button type="button" disabled>Incomplete</button>

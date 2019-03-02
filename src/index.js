@@ -10,6 +10,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 const feelings = [];
+const understanding = [];
 
 const feelingsReducer = (state = feelings, action) => {
     if (action.type === 'SET_FEELINGS') {
@@ -18,10 +19,18 @@ const feelingsReducer = (state = feelings, action) => {
     return state;
 }
 
+const understandingReducer = (state = understanding, action) => {
+    if (action.type === 'SET_UNDERSTANDING') {
+        return action.payload;
+    }
+    return state;
+}
+
 
 const storeInstance = createStore(
     combineReducers({
-      feelingsReducer
+      feelingsReducer,
+      understandingReducer,
     }),
     applyMiddleware(logger),
 );
