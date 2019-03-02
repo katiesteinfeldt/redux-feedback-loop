@@ -29,7 +29,7 @@ class Support extends Component {
             <div>
                 <h1>How well did you feel supported today?</h1>
                 <br />
-                <label for="support">Support?</label>
+                <label htmlFor="support">Support?</label>
                 <br />
                 <input value={this.state.support} onChange={this.handleChangeFor} id="support" type="number"></input>
                 <br />

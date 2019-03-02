@@ -17,8 +17,10 @@ class Admin extends Component {
         });
     }
 
-    handleDelete = () => {
-        console.log('delete button was clicked');
+    handleDelete = id => {
+        return () => {
+            console.log('delete button was clicked', id);
+        }
     }
 
     createAdminList() {
@@ -28,7 +30,7 @@ class Admin extends Component {
             <td>{feedback.comprehension}</td>
             <td>{feedback.support}</td>
             <td>{feedback.comments}</td>
-            <td><button onClick={this.handleDelete}>Delete</button></td>
+            <td><button onClick={this.handleDelete(feedback.id)}>Delete</button></td>
             </tr>
             )
     }

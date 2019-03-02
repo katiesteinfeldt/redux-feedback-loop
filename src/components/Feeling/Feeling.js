@@ -30,7 +30,7 @@ class Feeling extends Component {
             <div>
                 <h1>How are you feeling today?</h1>
                 <br />
-                <label for="feeling">Feeling?</label>
+                <label htmlFor="feeling">Feeling?</label>
                 <br />
                 <input value={this.state.feelings} onChange={this.handleChangeFor} id="feeling" type="number"></input>
                 <br />

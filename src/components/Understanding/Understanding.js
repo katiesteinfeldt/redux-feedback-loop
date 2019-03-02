@@ -29,7 +29,7 @@ class Understanding extends Component {
             <div>
                 <h1>How well did you understand today's material?</h1>
                 <br />
-                <label for="understanding">Understanding?</label>
+                <label htmlFor="understanding">Understanding?</label>
                 <br />
                 <input value={this.state.understanding} onChange={this.handleChangeFor} id="understanding" type="number"></input>
                 <br />

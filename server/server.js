@@ -24,7 +24,7 @@ app.post('/feedback', (req, res) => {
 
 app.get('/feedback', (req, res) => {
     console.log('/songs GET route was hit');
-    pool.query('SELECT * FROM "feedback";')
+    pool.query('SELECT * FROM "feedback" ORDER BY "id" DESC;')
         .then((result) => {
             res.send(result.rows);
         }).catch((error) => {
