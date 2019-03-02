@@ -17,6 +17,10 @@ class Admin extends Component {
         });
     }
 
+    handleDelete = () => {
+        console.log('delete button was clicked');
+    }
+
     createAdminList() {
         return this.props.adminReducer.map(feedback =>
             <tr key={feedback.id}><td>{feedback.id}</td>
@@ -24,7 +28,7 @@ class Admin extends Component {
             <td>{feedback.comprehension}</td>
             <td>{feedback.support}</td>
             <td>{feedback.comments}</td>
-            <td><button>Delete</button></td>
+            <td><button onClick={this.handleDelete}>Delete</button></td>
             </tr>
             )
     }
