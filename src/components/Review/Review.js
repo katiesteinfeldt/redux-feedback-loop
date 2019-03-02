@@ -19,8 +19,8 @@ class Review extends Component {
                 support: this.props.supportReducer,
                 comments: this.props.commentsReducer,
             }
-        }).then((response) => {
-            console.log(response);
+        }).then(() => {
+            this.props.history.push('thanks');
         });
     }
 

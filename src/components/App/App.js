@@ -8,6 +8,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
+import Thanks from '../Thanks/Thanks';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
           <Route exact path="/support" component={Support} />
           <Route exact path="/comments" component={Comments} />
           <Route exact path="/review" component={Review} />
+          <Route exact path="/thanks" component={Thanks} />
           
         </div>
       </Router>
