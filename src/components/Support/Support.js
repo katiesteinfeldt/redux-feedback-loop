@@ -15,6 +15,7 @@ class Support extends Component {
         this.setState({
             support: '',
         })
+        this.props.history.push('comments');
     }
 
     handleChangeFor = event => {

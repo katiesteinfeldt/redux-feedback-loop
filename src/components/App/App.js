@@ -7,7 +7,8 @@ import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import Review from '../Review/Review';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
           <Route exact path="/understanding" component={Understanding} />
           <Route exact path="/support" component={Support} />
           <Route exact path="/comments" component={Comments} />
+          <Route exact path="/review" component={Review} />
           
         </div>
       </Router>
