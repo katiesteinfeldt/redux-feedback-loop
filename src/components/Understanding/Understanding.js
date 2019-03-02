@@ -4,18 +4,17 @@ import { connect } from 'react-redux';
 import '../Feeling/Feeling.css';
 // import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
-class Feeling extends Component {
+class Understanding extends Component {
     state = {
-        feelings: '',
+        understanding: '',
     }
 
     handleButtonClick = event => {
         event.preventDefault();
-        this.props.dispatch({ type: 'SET_FEELINGS', payload: this.state.feelings })
+        this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state.understanding })
         this.setState({
-            feelings: '',
+            understanding: '',
         })
-        this.props.history.push('understanding');
     }
 
     handleChangeFor = event => {
@@ -25,14 +24,13 @@ class Feeling extends Component {
     }
 
     render() {
-        console.log(this.props.feelingsReducer);
         return (
             <div>
-                <h1>How are you feeling today?</h1>
+                <h1>How well did you understand today's material?</h1>
                 <br />
-                <label for="feeling">Feeling?</label>
+                <label for="understanding">Understanding?</label>
                 <br />
-                <input value={this.state.feelings} onChange={this.handleChangeFor} id="feeling" type="number"></input>
+                <input value={this.state.understanding} onChange={this.handleChangeFor} id="understanding" type="number"></input>
                 <br />
                 <div className="nextButton">
                     <button onClick={this.handleButtonClick}>Next</button>
@@ -40,7 +38,7 @@ class Feeling extends Component {
                 <br />
                 <h2>Review Your Feedback</h2>
                 <h3>Feelings: {this.props.feelingsReducer} </h3>
-                <h3>Understanding: </h3>
+                <h3>Understanding: {this.props.understanding}</h3>
                 <h3>Support: </h3>
                 <h3>Comments: </h3>
                 <button type="button" disabled>Incomplete</button>
@@ -53,4 +51,4 @@ const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default connect(mapReduxStateToProps)(Feeling);
+export default connect(mapReduxStateToProps)(Understanding);
