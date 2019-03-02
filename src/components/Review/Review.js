@@ -20,6 +20,7 @@ class Review extends Component {
                 comments: this.props.commentsReducer,
             }
         }).then(() => {
+            this.props.dispatch({type: 'CLEAR_COMMENTS'})
             this.props.history.push('thanks');
         });
     }

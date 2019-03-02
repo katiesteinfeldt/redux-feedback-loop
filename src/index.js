@@ -18,28 +18,40 @@ const feelingsReducer = (state = feelings, action) => {
     if (action.type === 'SET_FEELINGS') {
         return action.payload;
     }
-    return state;
+    else if (action.type === 'CLEAR_COMMENTS') {
+        return state;
+    }
+    else return state;
 }
 
 const understandingReducer = (state = understanding, action) => {
     if (action.type === 'SET_UNDERSTANDING') {
         return action.payload;
     }
-    return state;
+    else if (action.type === 'CLEAR_COMMENTS') {
+        return state;
+    }
+    else return state;
 }
 
 const supportReducer = (state = support, action) => {
     if (action.type === 'SET_SUPPORT') {
         return action.payload;
     }
-    return state;
+    else if (action.type === 'CLEAR_COMMENTS') {
+        return state;
+    }
+    else return state;
 }
 
 const commentsReducer = (state = comments, action) => {
     if (action.type === 'SET_COMMENTS') {
         return action.payload;
     }
-    return state;
+    else if (action.type === 'CLEAR_COMMENTS'){
+        return state;
+    }
+    else return state;
 }
 
 const storeInstance = createStore(

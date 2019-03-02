@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 class Thanks extends Component {
 
     newFeedback = () => {
-        console.log('new feedback was clicked');
+        window.location.reload();
+        this.props.history.push('/');
     }
 
     render() {
