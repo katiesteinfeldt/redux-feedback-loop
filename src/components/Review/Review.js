@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import { connect } from 'react-redux';
-
 
 class Review extends Component {
     
@@ -10,7 +9,20 @@ class Review extends Component {
         this.props.dispatch({ type: 'SUBMIT_FEEDBACK', payload: event })
     }
 
-
+    submitFeedback = (event) => {
+        axios({
+            method: 'POST',
+            url: '/feedback',
+            data: {
+                feelings: this.props.feelingsReducer,
+                understanding: this.props.understandingReducer,
+                support: this.props.supportReducer,
+                comments: this.props.commentsReducer,
+            }
+        }).then((response) => {
+            console.log(response);
+        });
+    }
 
     render() {
         return (
@@ -20,7 +32,7 @@ class Review extends Component {
                 <h3>Understanding: {this.props.understandingReducer}</h3>
                 <h3>Support: {this.props.supportReducer} </h3>
                 <h3>Comments: {this.props.commentsReducer} </h3>
-                <button type="button">Submit</button>
+                <button type="button" onClick={this.submitFeedback}>Submit</button>
             </div>
         );
     }
