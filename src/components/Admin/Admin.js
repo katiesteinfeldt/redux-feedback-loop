@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import AdminFeedbackItem from '../AdminFeedbackItem/AdminFeedbackItem';
 
 class Admin extends Component {
 
     componentDidMount = () => {
         this.getFeedback();
     }
-       getFeedback = () => {
+    getFeedback = () => {
         axios({
             method: 'GET',
             url: '/feedback'
@@ -20,14 +19,29 @@ class Admin extends Component {
 
     createAdminList() {
         return this.props.adminReducer.map(feedback =>
-            <AdminFeedbackItem key={feedback.id} feedback={feedback} />)
+            <tr key={feedback.id}><td>{feedback.id}</td></tr>
+            )
     }
- 
+
     render() {
         return (
             <div>
                 <h1>Admin Portal</h1>
-                {this.createAdminList()}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Feeling</th>
+                            <th>Comprehension</th>
+                            <th>Support</th>
+                            <th>Comments</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {this.createAdminList()}
+                    </tbody>
+                </table>                   
             </div>
         );
     }
