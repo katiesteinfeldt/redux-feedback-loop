@@ -19,7 +19,13 @@ class Admin extends Component {
 
     createAdminList() {
         return this.props.adminReducer.map(feedback =>
-            <tr key={feedback.id}><td>{feedback.id}</td></tr>
+            <tr key={feedback.id}><td>{feedback.id}</td>
+            <td>{feedback.feeling}</td>
+            <td>{feedback.comprehension}</td>
+            <td>{feedback.support}</td>
+            <td>{feedback.comments}</td>
+            <td><button>Delete</button></td>
+            </tr>
             )
     }
 
