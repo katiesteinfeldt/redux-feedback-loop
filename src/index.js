@@ -13,6 +13,7 @@ const feelings = [];
 const understanding = [];
 const support = [];
 const comments = [];
+const admin = [];
 
 const feelingsReducer = (state = feelings, action) => {
     if (action.type === 'SET_FEELINGS') {
@@ -42,12 +43,20 @@ const commentsReducer = (state = comments, action) => {
     else return state;
 }
 
+const adminReducer = (state = admin, action) => {
+    if (action.type === 'SET_ADMIN') {
+        return action.payload;
+    }
+    else return state;
+}
+
 const storeInstance = createStore(
     combineReducers({
         feelingsReducer,
         understandingReducer,
         supportReducer,
         commentsReducer,
+        adminReducer,
     }),
     applyMiddleware(logger),
 );
