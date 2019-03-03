@@ -28,7 +28,7 @@ class Comments extends Component {
             <div>
                 <h1>Any other comments?</h1>
                 <br />
-                <label for="comments">Comments?</label>
+                <label htmlFor="comments">Comments?</label>
                 <br />
                 <input value={this.state.comments} onChange={this.handleChangeFor} id="comments" type="text"></input>
                 <br />

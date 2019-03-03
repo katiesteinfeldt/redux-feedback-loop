@@ -21,26 +21,32 @@ class Admin extends Component {
     handleDelete = id => {
         return () => {
             console.log('delete button was clicked', id);
-            axios({
-                method: 'DELETE',
-                url: '/feedback/' + id,
-            }).then((response) => {
-                console.log(response);
-                this.getFeedback();
-            });
+            const r = window.confirm("Are you sure you want to delete this feedback?");
+            if (r === true) {
+                axios({
+                    method: 'DELETE',
+                    url: '/feedback/' + id,
+                }).then((response) => {
+                    console.log(response);
+                    this.getFeedback();
+                });
+            }
+            else {
+                window.alert("Feedback saved");
+            }
         }
     }
 
     createAdminList() {
         return this.props.adminReducer.map(feedback =>
             <tr key={feedback.id}><td>{feedback.id}</td>
-            <td>{feedback.feeling}</td>
-            <td>{feedback.understanding}</td>
-            <td>{feedback.support}</td>
-            <td>{feedback.comments}</td>
-            <td><button onClick={this.handleDelete(feedback.id)}>Delete</button></td>
+                <td>{feedback.feeling}</td>
+                <td>{feedback.understanding}</td>
+                <td>{feedback.support}</td>
+                <td>{feedback.comments}</td>
+                <td><button onClick={this.handleDelete(feedback.id)}>Delete</button></td>
             </tr>
-            )
+        )
     }
 
     render() {
@@ -59,9 +65,9 @@ class Admin extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                      {this.createAdminList()}
+                        {this.createAdminList()}
                     </tbody>
-                </table>                   
+                </table>
             </div>
         );
     }
