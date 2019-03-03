@@ -27,7 +27,7 @@ class Admin extends Component {
         return this.props.adminReducer.map(feedback =>
             <tr key={feedback.id}><td>{feedback.id}</td>
             <td>{feedback.feeling}</td>
-            <td>{feedback.comprehension}</td>
+            <td>{feedback.understanding}</td>
             <td>{feedback.support}</td>
             <td>{feedback.comments}</td>
             <td><button onClick={this.handleDelete(feedback.id)}>Delete</button></td>
