@@ -11,7 +11,6 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.post('/feedback', (req, res) => {
-    console.log('/feedback POST route was hit', req.body);
     pool.query(`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4);`, [req.body.feelings, req.body.understanding, req.body.support, req.body.comments])
         .then(() => {
@@ -23,12 +22,21 @@ app.post('/feedback', (req, res) => {
 });
 
 app.get('/feedback', (req, res) => {
-    console.log('/songs GET route was hit');
     pool.query('SELECT * FROM "feedback" ORDER BY "id" DESC;')
         .then((result) => {
             res.send(result.rows);
         }).catch((error) => {
             console.log('error with feedback select', error);
+            res.sendStatus(500);
+        });
+});
+
+app.delete('/feedback/:id', (req, res) => {
+    pool.query(`DELETE FROM "feedback" WHERE "id"= $1;`, [req.params.id])
+        .then(() => {
+            res.sendStatus(204);
+        }).catch((error) => {
+            console.log('error with feedback delete query', error);
             res.sendStatus(500);
         });
 });

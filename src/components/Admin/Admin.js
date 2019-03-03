@@ -7,6 +7,7 @@ class Admin extends Component {
     componentDidMount = () => {
         this.getFeedback();
     }
+
     getFeedback = () => {
         axios({
             method: 'GET',
@@ -20,6 +21,13 @@ class Admin extends Component {
     handleDelete = id => {
         return () => {
             console.log('delete button was clicked', id);
+            axios({
+                method: 'DELETE',
+                url: '/feedback/' + id,
+            }).then((response) => {
+                console.log(response);
+                this.getFeedback();
+            });
         }
     }
 
