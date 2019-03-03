@@ -37,7 +37,6 @@ class Understanding extends Component {
                     <button onClick={this.handleButtonClick}>Next</button>
                 </div>
                 <br />
-                <h2>Review Your Feedback</h2>
                 <h3>Feelings: {this.props.feelingsReducer} </h3>
                 <h3>Understanding: {this.props.understandingReducer}</h3>
                 <h3>Support: </h3>
