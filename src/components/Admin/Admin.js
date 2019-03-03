@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import './Admin.css';
 
 class Admin extends Component {
 
@@ -39,12 +40,12 @@ class Admin extends Component {
 
     createAdminList() {
         return this.props.adminReducer.map(feedback =>
-            <tr key={feedback.id}><td>{feedback.id}</td>
+            <tr className="admin-row" key={feedback.id}><td>{feedback.id}</td>
                 <td>{feedback.feeling}</td>
                 <td>{feedback.understanding}</td>
                 <td>{feedback.support}</td>
                 <td>{feedback.comments}</td>
-                <td><button onClick={this.handleDelete(feedback.id)}>Delete</button></td>
+                <td><button onClick={this.handleDelete(feedback.id)} className="btn"><i className="fa fa-trash"></i></button></td>  
             </tr>
         )
     }
@@ -53,9 +54,9 @@ class Admin extends Component {
         return (
             <div>
                 <h1>Admin Portal</h1>
-                <table>
+                <table className="admin-table">
                     <thead>
-                        <tr>
+                        <tr className="admin-tableHead">
                             <th>ID</th>
                             <th>Feeling</th>
                             <th>Comprehension</th>
