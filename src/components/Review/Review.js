@@ -4,11 +4,6 @@ import { connect } from 'react-redux';
 
 class Review extends Component {
     
-    handleButtonClick = event => {
-        event.preventDefault();
-        this.props.dispatch({ type: 'SUBMIT_FEEDBACK', payload: event })
-    }
-
     submitFeedback = (event) => {
         axios({
             method: 'POST',
